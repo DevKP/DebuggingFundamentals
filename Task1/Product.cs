@@ -1,4 +1,6 @@
-﻿namespace Task1
+﻿using System;
+
+namespace Task1
 {
     public class Product
     {
@@ -20,6 +22,11 @@
 
             var product = (Product)obj;
             return (Name == product.Name) && (Price == product.Price);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Price);
         }
     }
 }
